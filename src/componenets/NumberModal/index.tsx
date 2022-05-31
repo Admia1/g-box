@@ -34,6 +34,7 @@ const StyledCell = styled.div`
     opacity: 0.25;
     color: white;
     transition: 2s;
+    cursor: pointer;
     
     &:hover{
         scale: 2;
