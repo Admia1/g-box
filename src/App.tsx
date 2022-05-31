@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Sudoku from './componenets/Sudoku';
 import NumberModal from './componenets/NumberModal'
 import { ModalContextProvider } from './hooks/ModalContext';

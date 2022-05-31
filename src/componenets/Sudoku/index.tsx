@@ -1,4 +1,3 @@
-import { tab } from "@testing-library/user-event/dist/tab";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { ModalContext } from "../../hooks/ModalContext";
@@ -55,10 +54,11 @@ function Sudoku(setNumberModalLocation:any) {
 
     useEffect(() => {
         if(event.row !== -1 && event.col !== -1){
-            console.log(event);
-            let copy = [...table];
-            copy[event.row][event.col] = event.value;
-            setTable(copy);
+            setTable((oldTable) => {
+                let copy = [...oldTable];
+                copy[event.row][event.col] = event.value;
+                return copy;
+            });
         }
     }, [event]);
 
