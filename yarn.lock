@@ -2,6 +2,24 @@
 # yarn lockfile v1
 
 
+"@algorithm.ts/dlx@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@algorithm.ts/dlx/-/dlx-2.0.11.tgz#3a01ffd91c4566b8a1fbe032a5520ee12ea2858b"
+  integrity sha512-A7p9UYFpILGtrLzNPlpKTb9gnkpshxENcZXZcpH8wycSmmsvxYdGgUftrKdsv4uA1HAVYM3o+OUs4J67nSFLIg==
+
+"@algorithm.ts/knuth-shuffle@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@algorithm.ts/knuth-shuffle/-/knuth-shuffle-2.0.11.tgz#c90471f274998e2a80bf99ee816f0e6cd7570f55"
+  integrity sha512-3LJsLxsFn4F6qzdDqHH8vvYQJEL9aE9Ge1O9qTE2vlg5mf9BB+2CF6E1dLD6zUlAdGDdQZQDEFz3vNKj3TRoFA==
+
+"@algorithm.ts/sudoku@^2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@algorithm.ts/sudoku/-/sudoku-2.0.11.tgz#c16a420d42c8818dac24efd431f01c83e70c2eb8"
+  integrity sha512-/GIpIHJfkHA+n5mQXzQ9emjfKq3+Hu+EhLr+tJDDIKGssrNdpzJvDn6hwSnw7lYgoK/Jnrqgv53gXzaFiAjXkg==
+  dependencies:
+    "@algorithm.ts/dlx" "^2.0.11"
+    "@algorithm.ts/knuth-shuffle" "^2.0.11"
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.0.tgz"
