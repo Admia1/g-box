@@ -2,15 +2,27 @@ import Sudoku from './componenets/Sudoku';
 import NumberModal from './componenets/NumberModal'
 import { ModalContextProvider } from './hooks/ModalContext';
 import './App.css';
+import WinGameModal from './componenets/WinGameModal';
+import styled from 'styled-components';
+
+const DisplayWrapper = styled.div`
+    display: flex;
+    width: 100%;
+    background-color: #817878;
+    align-items: center;
+    justify-content: center;
+`
+
 
 function App() {
 
   return (
     <>
-    <ModalContextProvider>
-      <NumberModal/>
-      <Sudoku />
-    </ModalContextProvider>
+      <ModalContextProvider>
+          <NumberModal />
+          <WinGameModal />
+          <Sudoku />
+      </ModalContextProvider>
     </>
   );
   // return (

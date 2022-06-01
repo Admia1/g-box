@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { ModalContext } from "../../hooks/ModalContext";
 
 
@@ -8,7 +8,7 @@ const StyledPosition = styled.div<{isEnable:boolean, location:{x:number, y:numbe
     position: absolute;
     width: 100%;
     height: 100%;
-    padding: ${({location})=>location.y && location.y-20}px 0px 0px ${({location})=>location.x && location.x-20}px;
+    padding: ${({location})=>Math.max(0,location.y-22)}px 0px 0px ${({location})=>Math.max(0,location.x-22)}px;
 `
 const StyledNumberBox = styled.div`
     display: flex;
@@ -31,14 +31,15 @@ const StyledCell = styled.div`
     border-radius: 10px;
     padding:  5px 5px 5px 5px;
     background-color: #1e1e29;
-    opacity: 0.25;
+    opacity: 0.35;
     color: white;
     transition: 0.5s;
+    scale: 1.5;
     cursor: pointer;
     
     &:hover{
-        scale: 2;
-        opacity: 0.75;
+        scale: 3;
+        opacity: 0.85;
         background-color: #802d75;
     }
 `
@@ -49,21 +50,9 @@ function NumberModal() {
 
     const { location, callModal, chooseNumber } = useContext(ModalContext);
 
-    const [isEnabled, setIsEnabled] = useState<boolean>(false);
-    console.log(isEnabled);
-    useEffect(() => {
-        if(location.x !== 0 && location.y !== 0){
-            setIsEnabled(true);
-        }
-        else{
-            setIsEnabled(false);
-        }
-    }, [location, setIsEnabled]);
-
-
     return (
         
-        <StyledPosition isEnable={isEnabled} location={location} onClick={()=>callModal(-1,-1,0,0)} >
+        <StyledPosition isEnable={location.x !== 0 && location.y !== 0} location={location} onClick={()=>callModal(-1,-1,0,0)} >
             <StyledNumberBox>
                 {numbers.map((row, rowIndex) =>
                     <StyledRow key={rowIndex}>

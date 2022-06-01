@@ -6,17 +6,27 @@ export const ModalContext = createContext<{
     callModal: (row: number, col: number, x: number, y: number) => void;
     chooseNumber: (number: number) => void;
     event: { row: number, col: number, value: number };
+    gameStatus: number;
+    winGame: ()=>void;
+    continueGame: ()=>void;
 }>({
     location: { row: -1, col: -1, x: 0, y: 0 },
     callModal: (row, call, x, y) => { },
     chooseNumber: (number) => { },
-    event: { row: -1, col: -1, value: -1 }
+    event: { row: -1, col: -1, value: -1 },
+    gameStatus: 0,
+    winGame: ()=>{},
+    continueGame: ()=>{},
 });
 
 export function ModalContextProvider({ children }: PropsWithChildren<{}>) {
     const [location, setLocation] = useState<{ x: number, y: number, row: number, col: number }>({ x: 0, y: 0, row: -1, col: -1 });
     const [event, setEvent] = useState<{ row: number, col: number, value: number }>({ row: -1, col: -1, value: -1 });
-
+    
+    const [gameStatus, setGameStatus] = useState<number>(0);
+    const winGame = ()=>{
+        setGameStatus(1);
+    }
     const callModal = (row: number, col: number, x: number, y: number) => {
         setLocation({ row, col, x, y });
     }
@@ -31,9 +41,12 @@ export function ModalContextProvider({ children }: PropsWithChildren<{}>) {
         setEvent({ row: location.row, col: location.col, value: number });
         setLocation({ row: -1, col: -1, x: 0, y: 0 });
     }
+    const continueGame = ()=>{
+        setGameStatus(0);
+    }
 
     return (
-        <ModalContext.Provider value={{ location, callModal, chooseNumber, event }}>
+        <ModalContext.Provider value={{ location, callModal, chooseNumber, event, gameStatus, winGame, continueGame }}>
             {children}
         </ModalContext.Provider>
     );
