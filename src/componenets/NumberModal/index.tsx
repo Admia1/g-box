@@ -33,7 +33,7 @@ const StyledCell = styled.div`
     background-color: #1e1e29;
     opacity: 0.25;
     color: white;
-    transition: 2s;
+    transition: 0.5s;
     cursor: pointer;
     
     &:hover{
