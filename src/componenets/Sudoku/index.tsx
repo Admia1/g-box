@@ -47,14 +47,12 @@ const StyledSudokuCellBorder2 = styled.div<{ rowIndex: number, colIndex: number 
     background-color: #0a1e44;
 `
 const StyledSudokuCell = styled.div`
-    width: 40px;
-    height: 40px;
-    padding: 10px;
+    padding: 5px;
     background-color: gray;
 `
 const StyledSudokuCellNumber = styled.div<{ cell:{error: number, number:number, default: boolean} }>`
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 20px;
     padding: 10px;
     background-color: ${({ cell }) => cell.number === -1 ? '#e49732' : cell.default? '#442929': cell.error? '#ff0000' : '#9b5a06'};
